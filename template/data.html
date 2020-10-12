@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Crawler{% endblock %}
+
+{% block content %}
+<div style="padding: 0 20px 0 20px;">
+    <a href="/export/">Get Excel</a>
+    <table class="table is-fullwidth is-hoverable is-bordered">
+        <thead>
+            <tr>
+                <th>Sn.</th>
+                <th>SKU</th>
+                <th>Link</th>
+                <th>Web_Price</th>
+                <th>Our_Price</th>
+                <th>Offers</th>
+                <th>Express</th>
+                <th>Seller</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for prod in data %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{prod.sku}}</td>
+                <td>{{prod.link}}</td>
+                <td>{{prod.web_price}}</td>
+                <td>{{prod.our_price}}</td>
+                <td>{{prod.offers}}</td>
+                <td>{{prod.express}}</td>
+                <td>{{prod.sot}}</td>
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

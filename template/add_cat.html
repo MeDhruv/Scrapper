@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Products{% endblock %}
+
+{% block content %}
+
+<style>
+  .columns{
+    padding-bottom:10px;
+  }
+</style>
+
+<section>
+  <form action="." method="POST" style="width: 50%;margin: auto;">
+    {% csrf_token %}
+    <div class="columns">
+      <input type="text" class="input" name="Category Name" placeholder="Add Category">
+    </div>
+    <div class="columns">
+      <button class="button is-primary">Submit</button>
+    </div>
+    
+  </form>
+  
+{% endblock %}

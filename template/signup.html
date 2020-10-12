@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST" action=".">
+        {% csrf_token %}
+        Name = <input type="text" name='name' placeholder="Enter Your Name"><br>
+        Gmail = <input type="text" name='gmail' placeholder="Enter Your Email id"><br>
+        Password = <input type="password" placeholder="Enter Your Password"><br>
+        Re-Password = <input type="password" name="password" placeholder="Enter your Password Again"><br>
+        <input type="submit" >
+    </form>
+</body>
+</html>

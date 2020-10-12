@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %} {% endblock %}
+
+{% block content %}
+
+<div style="padding: 0 20px 0 20px;">
+    <table class="table is-fullwidth is-hoverable is-bordered">
+        <thead>
+            <tr>
+                <th>Sn.</th>
+                <th>SKU</th>
+                <th>Category</th>
+                <th>Product_link</th>
+                <th>Price</th>
+                <th>Freezed</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for i in product %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td><a href="product/detail/{{i.id}}/">{{i.sku}}</a></td>
+                <td>{{i.our_category}}</a></td>
+                <td>{{i.Product_link}}</td>
+                <td>{{i.min_price}}</td>
+                <td>{{i.Freezed}}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div style="padding:0 20px 0 20px">
+    <form action="." method="POST">
+        {% csrf_token %}
+        <table class="table is-fullwidth">
+            <tr>
+                <th>
+                    Attribue
+                </th>
+                <th>
+                    Value
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    Category
+                </td>
+                <td>
+                    {% if edit %}
+                        <!-- <input type="text" name="category" value="{{product.our_category.Category_name}}" class="input"/> -->
+                    <select class="input" name="category">
+                        {% for j in category %}
+                            {% if product.our_category.id == j.id %}
+                                <option value="{{j.id}}" selected>{{j.Category_name}}</option>
+                            {% else %}
+                                <option value="{{j.id}}">{{j.Category_name}}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                    {% else %}
+                        {{product.our_category}}
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Product Link
+                </td>
+                <td>
+
+                    {% if edit %}
+                        <input type="text" name="link" value="{{product.Product_link}}" class="input"/>
+                    {% else %}
+                        {{product.Product_link}}
+                    {% endif %}
+
+                    
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Price
+                </td>
+                <td>
+                    {% if edit %}
+                        <input type="text" name="price" value="{{product.min_price}}" class="input"/>
+                    {% else %}
+                        {{product.min_price}}
+                    {% endif %}
+                    
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Freezed
+                </td>
+                <td>
+                    
+                    {% if edit %}
+                        <input type="text" name="freeze" value="{{product.Freezed}}" class="input"/>
+                    {% else %}
+                        {{product.Freezed}}
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                {% if edit %}
+                <tr>
+                    <td>
+                        <button class="button is-primary">Update</button>
+                    </td>
+                </tr>
+                
+                {% else %}
+                <td>
+                    <a href="/product/edit/{{product.id}}/">
+                        <button type="button" class="button is-primary"><i class="fa fa-pen"></i></button>
+                    </a>
+                </td>
+                <td>
+                    <a href="/del/{{product.id}}/"><button class="button is-danger" type="button"><i class="fa fa-trash"></i></button></a>
+                </td>
+                {% endif %}
+            </tr>
+        </table>
+    </form>
+</div>
+{% endblock %}

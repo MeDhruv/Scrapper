@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.1/css/bulma.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"/>
+</head>
+<body>
+    <div> 
+        <div>
+            <section class="hero is-fullheight">
+                <div class="hero-body">
+                  <div class="container">
+            
+                    <div class="columns is-centered">
+                        
+                        <div class="column is-5-tablet is-4-desktop is-5-widescreen">
+                            <h2 class="title" style="text-align: center;">Welcome Back :)</h2>
+                            <form action="." method="POST" class="box" style="padding: 1.5rem;box-shadow: none; border:1px solid rgba(0,0,0,0.1)">
+                          {% csrf_token %}
+                            <div class="field">
+                            <label for="" class="label">Username</label>
+                            {% if error %}
+                            <span style="color: red;">Invalid Username or Password Invalid</span>
+                            {% endif %}
+                       
+                            <div class="control has-icons-left">
+                               <input type="text" name="username" autocomplete="off" placeholder="username" class="input is-rounded" required>
+                              <span class="icon is-small is-left">
+                                <i class="fa fa-user"></i>
+                              </span>
+                            </div>
+                          </div>
+                          <div class="field">
+                            <label for="" class="label">Password</label>
+                            <div class="control has-icons-left">
+                              <input type="password" name="password" placeholder="Password" class="input is-rounded" required>
+                              <span class="icon is-small is-left">
+                                <i class="fa fa-lock"></i>
+                              </span>
+                            </div>
+                          </div>
+                          <div class="g-recaptcha" data-sitekey="6LdqctUZAAAAABpmgJ4bogDfLA7nfLbjgVUgVN01"></div>
+                            <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+                          <span>New User? <a href="/register/">Register!!</a></span>
+                          <div class="field">
+                            <button class="button is-primary is-rounded" style="margin-top: 10px;">
+                              Login
+                            </button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+
+
+            </div>
+    </div>    
+</body>
+
+</html>

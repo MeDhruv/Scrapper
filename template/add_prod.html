@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Products{% endblock %}
+
+{% block content %}
+
+
+
+<style>
+  .columns{
+    padding-bottom: 10px;
+  }
+</style>
+<section>
+  <form action="." method="POST" style="width: 50%; margin: auto;">
+    {% csrf_token %}
+    <div class="columns">
+      <input type="text" class="input" name="sku" placeholder="SKU">
+    </div>
+    <div class="columns">
+      <input type="text" class="input" name= "prod_link" placeholder="Link">
+    </div>
+    <div class="columns">
+      <input type="text" class="input" name = "min_price" placeholder="Price"><br>
+    </div>
+    <div class="columns">
+      
+    <select name="Category"  class="input">    
+      <option>select category</option>
+      {% for i in Categories %}
+        <option value="{{i.id}}">{{i}}</option>{{i}}
+      {% endfor %}
+    </select><br>
+    </div>
+
+    <div class="columns">
+    
+    <select name="Freeze" id="" class="input">
+      <!-- <option>Freeze</option> -->
+      <option value="no">No</option>
+      <option value="yes">yes</option>
+    </select>
+  </option><br>
+  </div>
+  <div class="columns">
+    <button class="button is-primary">Submit</button>
+  </div>
+  
+  
+</form>
+</section>
+
+{% endblock %}
